@@ -36,13 +36,20 @@ function App() {
           user: user,
         });
       });
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: 'SET_PLAYLISTS',
+          playlists: playlists,
+        });
+      })
     }
 
-    console.log('token bruh', _token);
+    console.log('token 1st try', _token);
   }, []);
 
   console.log('user', user);
-  console.log('token nigga', token);
+  console.log('token is', token);
 
   return (
     <div className="app">
